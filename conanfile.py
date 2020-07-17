@@ -16,5 +16,5 @@ class TestMagicGet(ConanFile):
    def build(self):
       cmake = CMake(self)
       cmake.verbose = True
-      self.run("cmake magic_get_test/");
+      self.run("cmake magic_get_test/ -DCMAKE_BUILD_TYPE=Release");
       cmake.build();
