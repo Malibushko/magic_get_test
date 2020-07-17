@@ -18,4 +18,4 @@ install:
 build_script: 
   - cmd: conan remote add magic_get https://api.bintray.com/conan/yehorka9991/magic_get
   - cmd: conan install .
-  - cmd: conan create . yehorka/stable
+  - cmd: conan create . 
