@@ -9,7 +9,8 @@ Appveyor  [![Build Status](https://img.shields.io/appveyor/ci/Malibushko/yatgbot
 
 magic_get doesnt work with MSVC's implementation of `std::unique_ptr` but it does on GCC and CLang
 
-See CI log for the following code: ```namespace inner {
+See CI log for the following code: 
+```namespace inner {
 class MoveOnly {
 public:
     MoveOnly() = default;
@@ -37,9 +38,14 @@ int main()
     static_assert (boost::pfr::tuple_size_v<MoveWrapper> == 1);
     static_assert (boost::pfr::tuple_size_v<UniquePtr> == 1); // fail on MSVC 
     return 0;
-}```
+}
+```
 
-To be more precise, it triggers the following static_assert ```static_assert(
+To be more precise, it triggers the following static_assert 
+``` 
+static_assert(
         is_aggregate_initializable_n<type, result>::value,
         "====================> Boost.PFR: Types with user specified constructors (non-aggregate initializable types) are not supported."
-    );``` , even though `std::is_aggregate<UniquePtr>::value == true`
+); 
+``` 
+even though `std::is_aggregate<UniquePtr>::value == true`
